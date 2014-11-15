@@ -10,8 +10,19 @@ data Cell = Cell {x, y :: Int} deriving (Eq, Show, Ord)
 type Conway = [Cell]
 
 nextConway :: Conway -> Conway
-nextConway xs@(_:_:_) = (tail . reverse . tail) xs
-nextConway _ = []
+nextConway conway = filter (shouldBeAlive conway) conway
 
---isAlive :: Cell -> Conway -> Bool
---isAlive = elem
+shouldBeAlive :: Conway -> Cell -> Bool
+shouldBeAlive conway cell = 
+	(isAlive conway (leftOf cell)) && 
+	(isAlive conway (rightOf cell))
+
+leftOf :: Cell -> Cell
+leftOf (Cell x y) = Cell (x-1) y
+
+rightOf :: Cell -> Cell
+rightOf (Cell x y) = Cell (x+1) y
+
+
+isAlive :: Conway -> Cell -> Bool
+isAlive = flip elem

@@ -26,9 +26,14 @@ assert4InARowLeavesCentralAlive = assertConway
 	"4 In A Row -> Central Alive"
 	[Cell 0 0, Cell 1 0, Cell 2 0, Cell 3 0] [Cell 1 0, Cell 2 0]
 
+assertInterspersedDie = assertConway
+	"Interspersed -> All Die"
+	[Cell 0 0, Cell 2 0, Cell 4 0] []
+
 main = runTestTT $ TestList [
 		assertEmptyReturnsEmpty
 		,assertAliveGetsDead
 		,assert3InARowLeavesCentralAlive
 		,assert4InARowLeavesCentralAlive
+		,assertInterspersedDie
 	]
