@@ -5,7 +5,7 @@ import Test.HUnit
 
 assertEmptyReturnsEmpty = TestCase $ assertEqual 
 	"Empty -> Empty"
-	Empty (nextConway Empty)
+	[] (nextConway [])
 
 main = runTestTT $ TestList [
 		assertEmptyReturnsEmpty
