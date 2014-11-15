@@ -15,4 +15,4 @@ nextConway _ = []
 
 leftOf (Cell x y) = Cell (x-1) y
 
-rightOf _ = Cell 1 0
+rightOf (Cell x y) = Cell (x+1) y

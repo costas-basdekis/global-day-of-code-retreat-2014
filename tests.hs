@@ -38,6 +38,10 @@ assertGetLeftActual = TestCase $ assertEqual
 	"Get left of with another test case"
 	(Cell 9 15) (leftOf (Cell 10 15))
 
+assertGetRightActual = TestCase $ assertEqual
+	"Get right of with another test case"
+	(Cell 11 15) (rightOf (Cell 10 15))
+
 main = runTestTT $ TestList [
 		assertEmptyReturnsEmpty
 		,assertOneAliveDies
@@ -46,4 +50,5 @@ main = runTestTT $ TestList [
 		,assertGetLeft
 		,assertGetRight
 		,assertGetLeftActual
+		,assertGetRightActual
 	]
