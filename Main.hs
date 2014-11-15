@@ -6,4 +6,4 @@ main = do
 data Conway = Empty deriving (Eq, Show)
 
 nextConway :: Conway -> Conway
-nextConway = undefined
+nextConway x = x
