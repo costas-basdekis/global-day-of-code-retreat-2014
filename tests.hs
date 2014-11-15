@@ -24,7 +24,11 @@ assert3InARowOnlyMiddleSurvives = assertConway
 
 assert4InARowOnlyMiddleSurvives = assertConway
 	"4 in a column -> Middle survives"
-	[Cell 0 0, Cell 0 1, Cell 0 2, Cell 0 3] [Cell 0 1, Cell 0 2]
+	[Cell 0 0, Cell 1 0, Cell 2 0, Cell 3 0] [Cell 1 0, Cell 2 0]
+
+assertInterspersed = assertConway
+	"intersperse none survives"
+	[Cell 0 0, Cell 2 0, Cell 4 0] []
 
 assertGetLeft = TestCase $ assertEqual
 	"Get left of"
@@ -61,4 +65,5 @@ main = runTestTT $ TestList [
 		,assertGetRightActual
 		,assertBothNeighboursAlive
 		,assertBothNeighboursAliveWith3
+		,assertInterspersed
 	]
