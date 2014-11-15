@@ -9,3 +9,4 @@ type Conway = [[Cell]]
 nextConway :: Conway -> Conway
 nextConway [] = []
 nextConway [[_]] = [[Dead]]
+nextConway  x = x
