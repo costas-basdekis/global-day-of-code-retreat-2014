@@ -36,3 +36,8 @@ belowOf = offsetCell (0, 1)
 
 isAlive :: Conway -> Cell -> Bool
 isAlive = flip elem
+
+data Offset = Offset {oX, oY :: Int}
+
+isNeibhourAlive :: Offset -> Conway -> Cell -> Bool
+isNeibhourAlive offset conway cell = isAlive conway (offsetCell offset cell)

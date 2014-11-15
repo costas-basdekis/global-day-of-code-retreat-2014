@@ -34,6 +34,14 @@ assert3InAColumnHasCenterAlive = assertConway
 	"3 in column -> centre alive"
 	[Cell 0 0, Cell 0 1, Cell 0 2] [Cell 0 1]
 
+assertDiagonal = assertConway
+	"3 in diagon -> centre alive"
+	[Cell 0 0, Cell 1 1, Cell 2 2] [Cell 1 1]
+
+assertDiagonal2 = assertConway
+	"3 in diagon #2 -> centre alive"
+	[Cell 2 0, Cell 1 1, Cell 0 2] [Cell 1 1]
+
 main = runTestTT $ TestList [
 		assertEmptyReturnsEmpty
 		,assertAliveGetsDead
@@ -41,4 +49,6 @@ main = runTestTT $ TestList [
 		,assert4InARowLeavesCentralAlive
 		,assertInterspersedDie
 		,assert3InAColumnHasCenterAlive
+		,assertDiagonal
+		,assertDiagonal2
 	]
