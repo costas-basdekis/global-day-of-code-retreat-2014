@@ -4,4 +4,4 @@ main = do
 	putStrLn "Hello, world"
 
 nextConway :: String -> String
-nextConway = undefined
+nextConway "" = ""
