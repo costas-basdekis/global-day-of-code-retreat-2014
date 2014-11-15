@@ -48,4 +48,5 @@ main = runTestTT $ TestList [
 		,cellCanDieFromUnderpopulation1
 		,cellStaysAliveWith2Neighbours
 		,cellStaysAliveWith3Neighbours
+		,cellCanDieFromOverpopulation
 	]
