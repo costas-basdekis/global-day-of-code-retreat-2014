@@ -15,3 +15,6 @@ cellShouldDieGivenNeighbours :: Int -> Bool
 cellShouldDieGivenNeighbours 2 = False
 cellShouldDieGivenNeighbours 3 = False
 cellShouldDieGivenNeighbours _ = True
+
+cellShouldSpringIntoLifeGivenNeighbours 3 = True
+cellShouldSpringIntoLifeGivenNeighbours _ = False

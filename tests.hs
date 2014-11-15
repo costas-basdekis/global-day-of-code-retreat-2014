@@ -40,6 +40,13 @@ cellCanDieFromOverpopulation = TestCase $  assertEqual
 	"cell should have died from overpopulation"
 	True (cellShouldDieGivenNeighbours 4)
 
+cellSpringsToLifeIfHas3Neighbours = TestCase $  assertEqual
+	"cell should have sprung into life"
+	True (cellShouldSpringIntoLifeGivenNeighbours 3)
+cellDoesNotSpringToLifeIfHasDifferentNumberOfNeighbours = TestCase $  assertEqual
+	"cell should not have sprung into life"
+	False (cellShouldSpringIntoLifeGivenNeighbours 2)
+
 main = runTestTT $ TestList [
 		emptyRemainsEmpty
 		,singleAliveDies
@@ -49,4 +56,6 @@ main = runTestTT $ TestList [
 		,cellStaysAliveWith2Neighbours
 		,cellStaysAliveWith3Neighbours
 		,cellCanDieFromOverpopulation
+		,cellSpringsToLifeIfHas3Neighbours
+		,cellDoesNotSpringToLifeIfHasDifferentNumberOfNeighbours
 	]
