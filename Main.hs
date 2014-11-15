@@ -13,6 +13,6 @@ nextConway :: Conway -> Conway
 nextConway xs@(_:y:_) = sort $ tail (reverse (tail xs))
 nextConway _ = []
 
-leftOf _ = Cell (-1) 0
+leftOf (Cell x y) = Cell (x-1) y
 
 rightOf _ = Cell 1 0
