@@ -21,4 +21,4 @@ cellShouldSpringIntoLifeGivenNeighbours 3 = True
 cellShouldSpringIntoLifeGivenNeighbours _ = False
 
 numberOfNeighbours :: Board -> Cell -> Int
-numberOfNeighbours _ _ = 0
+numberOfNeighbours board (Cell x y) = if ((Cell x (y + 1)) `elem` board) then 1 else 0
