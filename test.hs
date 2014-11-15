@@ -30,10 +30,15 @@ assertInterspersedDie = assertConway
 	"Interspersed -> All Die"
 	[Cell 0 0, Cell 2 0, Cell 4 0] []
 
+assert3InAColumnHasCenterAlive = assertConway
+	"3 in column -> centre alive"
+	[Cell 0 0, Cell 0 1, Cell 0 2] [Cell 0 1]
+
 main = runTestTT $ TestList [
 		assertEmptyReturnsEmpty
 		,assertAliveGetsDead
 		,assert3InARowLeavesCentralAlive
 		,assert4InARowLeavesCentralAlive
 		,assertInterspersedDie
+		,assert3InAColumnHasCenterAlive
 	]
