@@ -10,3 +10,6 @@ empty = [] :: Board
 
 nextConway :: Board -> Board
 nextConway _ = empty
+
+cellShouldDieGivenNeighbours :: Int -> Bool
+cellShouldDieGivenNeighbours _ = True

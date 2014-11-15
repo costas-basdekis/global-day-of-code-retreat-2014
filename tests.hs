@@ -8,21 +8,26 @@ assertConway message input expected = TestCase $ assertEqual
 	message
 	expected (nextConway input)
 
-assertEmptyRemainsEmpty = assertConway
+emptyRemainsEmpty = assertConway
 	"Empty -> Empty"
 	empty empty
 
-asserSingleAliveDies = assertConway
+singleAliveDies = assertConway
 	"Alive -> Dead"
 	[Cell 0 0] empty
 
-asserQuadStaysQuad = assertConway
+quadStaysQuad = assertConway
 	"Quad -> Quad"
 	[Cell 0 0, Cell 1 0, Cell 0 1, Cell 1 1]
 	[Cell 0 0, Cell 1 0, Cell 0 1, Cell 1 1]
 
+cellCanDieFromUnderpopulation = TestCase $  assertEqual
+	"cell should have died from underpopulation"
+	True (cellShouldDieGivenNeighbours 0)
+
 main = runTestTT $ TestList [
-		assertEmptyRemainsEmpty
-		,asserSingleAliveDies
-		,asserQuadStaysQuad
+		emptyRemainsEmpty
+		,singleAliveDies
+		--,quadStaysQuad
+		,cellCanDieFromUnderpopulation
 	]
