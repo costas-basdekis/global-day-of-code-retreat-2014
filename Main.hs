@@ -12,4 +12,6 @@ nextConway :: Board -> Board
 nextConway _ = empty
 
 cellShouldDieGivenNeighbours :: Int -> Bool
-cellShouldDieGivenNeighbours numberOfNeighbours = numberOfNeighbours /= 2
+cellShouldDieGivenNeighbours 2 = False
+cellShouldDieGivenNeighbours 3 = False
+cellShouldDieGivenNeighbours _ = True
