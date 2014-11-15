@@ -9,6 +9,18 @@ assertConwayEquals message input expected = TestCase $ assertEqual
 
 assertConwayEmpty = assertConwayEquals
 	"Empty input -> Empty output"
-	"" ""
+	[] []
 
-main = runTestTT assertConwayEmpty
+assertConwayOneAlive = assertConwayEquals
+	"Empty input -> Empty output"
+	[[Alive]] [[Dead]]
+
+assertConwayOneDead = assertConwayEquals
+	"Empty input -> Empty output"
+	[[Dead]] [[Dead]]
+
+main = runTestTT $ TestList [
+		assertConwayEmpty,
+		assertConwayOneAlive,
+		assertConwayOneDead
+	]

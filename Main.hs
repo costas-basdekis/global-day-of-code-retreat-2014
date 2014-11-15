@@ -3,5 +3,9 @@ module Main where
 main = do
 	putStrLn "Hello, world"
 
-nextConway :: String -> String
-nextConway "" = ""
+data Cell = Alive | Dead deriving (Show, Eq)
+type Conway = [[Cell]]
+
+nextConway :: Conway -> Conway
+nextConway [] = []
+nextConway [[_]] = [[Dead]]
