@@ -3,4 +3,7 @@ module Main where
 main = do
 	putStrLn "hello, world"
 
-nextConway = undefined
+data Conway = Empty deriving (Eq, Show)
+
+nextConway :: Conway -> Conway
+nextConway _ = Empty

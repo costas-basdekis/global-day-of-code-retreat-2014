@@ -8,11 +8,11 @@ import Data.List
 
 assertConway message input expected = TestCase $ assertEqual
 	message
-	(sort expected) (sort (nextConway input))
+	expected (nextConway input)
 
 assertEmptyReturnsEmpty = assertConway
 	"Empty -> Empty"
-	[] []
+	Empty Empty
 
 main = runTestTT $ TestList [
 		assertEmptyReturnsEmpty
