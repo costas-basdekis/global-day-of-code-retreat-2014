@@ -44,7 +44,7 @@ assertGetRightActual = TestCase $ assertEqual
 
 assertBothNeighboursAlive = TestCase $ assertEqual
 	"asnlfa"
-	True (bothNeightboursAlive () ()) 
+	False (bothNeightboursAlive [] (Cell 0 0)) 
 
 main = runTestTT $ TestList [
 		assertEmptyReturnsEmpty
@@ -55,4 +55,5 @@ main = runTestTT $ TestList [
 		,assertGetRight
 		,assertGetLeftActual
 		,assertGetRightActual
+		,assertBothNeighboursAlive
 	]

@@ -17,4 +17,4 @@ leftOf (Cell x y) = Cell (x-1) y
 
 rightOf (Cell x y) = Cell (x+1) y
 
-bothNeightboursAlive conway cell = True
+bothNeightboursAlive conway cell = False
