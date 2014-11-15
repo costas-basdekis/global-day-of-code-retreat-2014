@@ -3,7 +3,10 @@ module Main where
 main = do
 	putStrLn "hello, world"
 
-data Board = Empty deriving (Eq, Show)
+data Cell = Cell {x, y :: Int} deriving (Eq, Show)
+
+type Board = [Cell]
+empty = [] :: Board
 
 nextConway :: Board -> Board
-nextConway x = x
+nextConway _ = empty

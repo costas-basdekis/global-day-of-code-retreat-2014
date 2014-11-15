@@ -10,8 +10,13 @@ assertConway message input expected = TestCase $ assertEqual
 
 assertEmptyRemainsEmpty = assertConway
 	"Empty -> Empty"
-	Empty Empty
+	empty empty
+
+asserSingleAliveDies = assertConway
+	"Alive -> Dead"
+	[Cell 0 0] empty
 
 main = runTestTT $ TestList [
 		assertEmptyRemainsEmpty
+		,asserSingleAliveDies
 	]
