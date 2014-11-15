@@ -20,5 +20,8 @@ cellShouldSpringIntoLifeGivenNeighbours :: Int -> Bool
 cellShouldSpringIntoLifeGivenNeighbours 3 = True
 cellShouldSpringIntoLifeGivenNeighbours _ = False
 
+foo :: Board -> Cell -> Int
+foo board cell = if (cell `elem` board) then 1 else 0
+
 numberOfNeighbours :: Board -> Cell -> Int
-numberOfNeighbours board (Cell x y) = if ((Cell x (y + 1)) `elem` board) then 1 else 0
+numberOfNeighbours board (Cell x y) = foo board (Cell x (y + 1))

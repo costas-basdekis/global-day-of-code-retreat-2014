@@ -55,6 +55,10 @@ cellCanHaveANeighbour = TestCase $  assertEqual
 	"cell should have no neighbours"
 	1 (numberOfNeighbours [Cell 0 1] (Cell 0 0))
 
+cellCanHaveMultipleNeighbours = TestCase $  assertEqual
+	"cell should have no neighbours"
+	8 (numberOfNeighbours [Cell 0 0, Cell 1 0, Cell 2 0, Cell 0 1, Cell 2 1, Cell 0 2, Cell 1 2, Cell 2 2] (Cell 1 1))
+
 main = runTestTT $ TestList [
 		emptyRemainsEmpty
 		,singleAliveDies
@@ -68,4 +72,5 @@ main = runTestTT $ TestList [
 		,cellDoesNotSpringToLifeIfHasDifferentNumberOfNeighbours
 		,cellCanHaveNoNeighbours
 		,cellCanHaveANeighbour
+		,cellCanHaveMultipleNeighbours
 	]
