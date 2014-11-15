@@ -19,17 +19,20 @@ shouldBeAlive conway cell =
 	((isAlive conway (aboveOf cell)) && 
 	(isAlive conway (belowOf cell)))
 
+offsetCell :: (Int, Int) -> Cell -> Cell
+offsetCell (offsetx, offsety) (Cell x y) = Cell (offsetx + x) (offsety + y)
+
 leftOf :: Cell -> Cell
-leftOf (Cell x y) = Cell (x-1) y
+leftOf = offsetCell (-1, 0)
 
 rightOf :: Cell -> Cell
-rightOf (Cell x y) = Cell (x+1) y
+rightOf = offsetCell (1, 0)
 
 aboveOf :: Cell -> Cell
-aboveOf (Cell x y) = Cell x (y-1)
+aboveOf = offsetCell (0, -1)
 
 belowOf :: Cell -> Cell
-belowOf (Cell x y) = Cell x (y+1)
+belowOf = offsetCell (0, 1)
 
 isAlive :: Conway -> Cell -> Bool
 isAlive = flip elem
