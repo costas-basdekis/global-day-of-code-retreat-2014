@@ -16,7 +16,13 @@ asserSingleAliveDies = assertConway
 	"Alive -> Dead"
 	[Cell 0 0] empty
 
+asserQuadStaysQuad = assertConway
+	"Quad -> Quad"
+	[Cell 0 0, Cell 1 0, Cell 0 1, Cell 1 1]
+	[Cell 0 0, Cell 1 0, Cell 0 1, Cell 1 1]
+
 main = runTestTT $ TestList [
 		assertEmptyRemainsEmpty
 		,asserSingleAliveDies
+		,asserQuadStaysQuad
 	]
