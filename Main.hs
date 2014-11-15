@@ -16,3 +16,5 @@ nextConway _ = []
 leftOf (Cell x y) = Cell (x-1) y
 
 rightOf (Cell x y) = Cell (x+1) y
+
+bothNeightboursAlive conway cell = True

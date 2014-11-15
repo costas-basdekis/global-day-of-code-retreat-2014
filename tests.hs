@@ -42,6 +42,10 @@ assertGetRightActual = TestCase $ assertEqual
 	"Get right of with another test case"
 	(Cell 11 15) (rightOf (Cell 10 15))
 
+assertBothNeighboursAlive = TestCase $ assertEqual
+	"asnlfa"
+	True (bothNeightboursAlive () ()) 
+
 main = runTestTT $ TestList [
 		assertEmptyReturnsEmpty
 		,assertOneAliveDies
