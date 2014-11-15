@@ -26,9 +26,14 @@ assert3InAColumnOnlyMiddleSurvives = assertConway
 	"3 in a column -> Middle survives"
 	[Cell 0 0, Cell 0 1, Cell 0 2] [Cell 0 1]
 
+assert4InARowOnlyMiddleSurvives = assertConway
+	"3 in a column -> Middle survives"
+	[Cell 0 0, Cell 0 1, Cell 0 2, Cell 0 3] [Cell 0 1, Cell 0 2]
+
 main = runTestTT $ TestList [
 		assertEmptyReturnsEmpty
 		,assertOneAliveDies
 		,assert3InARowOnlyMiddleSurvives
 		,assert3InAColumnOnlyMiddleSurvives
+		,assert4InARowOnlyMiddleSurvives
 	]
