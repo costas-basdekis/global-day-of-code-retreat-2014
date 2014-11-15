@@ -3,13 +3,17 @@ module Conway_Test where
 import Main hiding (main)
 import Test.HUnit
 
-assertEmptyReturnsEmpty = TestCase $ assertEqual 
-	"Empty -> Empty"
-	[] (nextConway [])
+assertConway message input expected = TestCase $ assertEqual
+	message
+	expected (nextConway input)
 
-assertAliveGetsDead = TestCase $ assertEqual 
+assertEmptyReturnsEmpty = assertConway
+	"Empty -> Empty"
+	[] []
+
+assertAliveGetsDead = assertConway
 	"Single Alive -> Dead"
-	[] (nextConway [Cell 0 0])
+	[Cell 0 0] []
 
 main = runTestTT $ TestList [
 		assertEmptyReturnsEmpty,
