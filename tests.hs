@@ -21,13 +21,22 @@ quadStaysQuad = assertConway
 	[Cell 0 0, Cell 1 0, Cell 0 1, Cell 1 1]
 	[Cell 0 0, Cell 1 0, Cell 0 1, Cell 1 1]
 
-cellCanDieFromUnderpopulation = TestCase $  assertEqual
+cellCanDieFromUnderpopulation0 = TestCase $  assertEqual
 	"cell should have died from underpopulation"
 	True (cellShouldDieGivenNeighbours 0)
+cellCanDieFromUnderpopulation1 = TestCase $  assertEqual
+	"cell should have died from underpopulation"
+	True (cellShouldDieGivenNeighbours 1)
+
+cellStaysAliveWith2Neighbours = TestCase $  assertEqual
+	"cell should have stayed alive"
+	False (cellShouldDieGivenNeighbours 2)
 
 main = runTestTT $ TestList [
 		emptyRemainsEmpty
 		,singleAliveDies
 		--,quadStaysQuad
-		,cellCanDieFromUnderpopulation
+		,cellCanDieFromUnderpopulation0
+		,cellCanDieFromUnderpopulation1
+		,cellStaysAliveWith2Neighbours
 	]
